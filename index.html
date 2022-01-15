@@ -7,24 +7,37 @@
         <div class="todoListWrap">
             <h2>To DO List</h2>
             <div class="searchBox"><input type="text" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit." name="searchV"><button class="btn_Submit">SUBMIT</button></div>
-            <ul class="listNav">
-                
-            </ul>
+            <ul class="listNav"></ul>
         </div>
 
         <script>
             const searchSelector = document.querySelector('input[name="searchV"]');
-            const searchValue = document.querySelector('input[name="searchV"]').value;
             const btnClick = document.querySelector('.btn_Submit');
+            const todoList = document.querySelector('.listNav');
 
-            searchSelector.addEventListener('keydown', function(e){
-                const todoList = document.querySelector('.listNav');
-                if(e.key == 'Enter'){
-                    todoList.innerHTML += '<li>'+searchSelector.value+'</li>'
-                    searchSelector.value = '';
+            searchSelector.addEventListener('keydown', function(e){ // 키 입력시 아래 내용 실행
+                if(e.key == 'Enter'){ // Enter 입력시 아래 내용 실행
+                    addValue();
                 }
             })
-            console.log(searchSelector);
+
+            btnClick.addEventListener('click', function(){ // Submit 버튼 클릭시 아래 내용 실행
+                addValue();
+             })
+            
+            function addValue(){
+                if(searchSelector.value == ''){ // 입력 박스에 내용이 없을 경우 아래 내용 실행.
+                    alert('내용이 없습니다.');
+                    return;
+                }
+                todoList.innerHTML += '<li>'+searchSelector.value+'<span class="listRemove" onclick="listRemove(this)"></span></li>' // 이벤트 실행시 html 추가
+                searchSelector.value = ''; // 이벤트가 전부 실행되면 입력 박스 value 초기화
+            }
+
+
+            function listRemove(e){ // 함수 실행시 this 부모 노드를 삭제함
+                e.parentNode.remove();
+            }
         </script>
     </body>
 </html>
