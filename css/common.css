@@ -1,6 +1,7 @@
 *{margin:0;padding:0;}
 ul{list-style:none;}
 a{text-decoration:none;}
+.txtC{text-align: center;}
 .todoListWrap{max-width:500px;margin:auto;}
 .todoListWrap h2{font-size:28px;font-weight:bold;text-align:center;padding:20px 0;}
 .todoListWrap .searchBox{overflow:hidden;}
@@ -21,3 +22,19 @@ a{text-decoration:none;}
 .todoListWrap .listNav li:hover .listRemove::before,
 .todoListWrap .listNav li:hover .listRemove::after{background:#fff;}
 .todoListWrap .listNav li:hover .moveItem{background:#000;color:#fff;}
+
+.btnPop{display:inline-block;color:#000;border:1px solid #000;padding:10px 20px;transition: all .2s;}
+.btnPop:hover{background: #000;color:#fff;transition: all .2s;}
+
+.popWrap{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.4);display:none;}
+.popWrap.on{display:block;}
+.popWrap .popCont{background:#fff;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);}
+.popWrap .popCont.min700{min-width:700px;}
+.popWrap .popCont.min1000{min-width:1000px;}
+.popWrap .popCont .popHead{position:relative;padding:20px 15px;border-bottom:1px solid #ddd;}
+.popWrap .popCont .popHead h2{font-size:24px;color:#333;}
+.popWrap .popCont .popHead .popClose{position:absolute;top:50%;right:15px;margin-top:-15px;width:30px;height:30px;background:#000;cursor:pointer;}
+.popWrap .popCont .popHead .popClose::before{width:60%;height:1px;background:#fff;content:"";display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%) rotate(45deg);}
+.popWrap .popCont .popHead .popClose::after{width:60%;height:1px;background:#fff;content:"";display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%) rotate(135deg);}
+.popWrap .popCont .popBody{overflow:hidden;overflow-y:auto;}
+.popWrap .popCont .popBody{padding:20px 15px;}

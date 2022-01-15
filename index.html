@@ -8,9 +8,56 @@
             <h2>To Do List</h2>
             <div class="searchBox"><input type="text" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit." name="searchV"><button class="btn_Submit">SUBMIT</button></div>
             <ul class="listNav"></ul>
+
+            <div class="txtC">
+                <a href="#;" aria-current="popOpen" class="btnPop">팝업 오픈</a>
+            </div>
+        </div>
+
+        <div class="popWrap" id="popOpen">
+            <div class="popCont min700">
+                <div class="popHead">
+                    <h2>팝엄 타이틀</h2>
+                    <span class="popClose" onclick="popClose(this)"></span>
+                </div>
+                <div class="popBody">
+                    <div class="popInner">
+                        asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdf<br>asdfasdf123123123<br>asdf<br>asdfasdfasdg123123124134234<br>asdfasdfasdg123123124134234<br>asdfasdfasdg123123124134234<br>asdfasdfasdg123123124134234<br>asdfasdfasdg123123124134234<br>asdfasdfasdg123123124134234<br>asdfasdfasdg123123124134234<br>asdfasdfasdg123123124134234<br>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <script>
+            // 1. 버튼 attribute href값 도출
+            // 2. 버튼에서 도출한 값을 팝업 ID값에 대입
+            // 3. 값이 같은 팝업창에 on 클래스 추가
+
+            const popBtn = document.querySelector('.btnPop');
+            
+            popBtn.addEventListener('click', function(e){
+                const btnAttr = document.getElementById(e.target.getAttribute('aria-current'));
+                btnAttr.classList.add('on');
+
+                // 1. window height 도출
+                // 2. popup height 도출
+                // 3. window height, popup height 비교 popup의 높이값이 더 높으면 popup Body 스크롤 생성
+                const windowHeight = window.innerHeight;
+                const popupHeight = btnAttr.children[0].offsetHeight;
+                const popupHeadHeight = btnAttr.children[0].children[0].offsetHeight;
+
+                if(windowHeight <= popupHeight+80){
+                    btnAttr.children[0].children[1].children[0].style.maxHeight = windowHeight - popupHeadHeight - 100
+                }
+            })
+
+            function popClose(e){
+                e.parentNode.parentNode.parentNode.classList.remove('on');
+            }
+
+            
+
+
             // 1. input 입력 후, Enter 및 Submit버튼 클릭시 입력 내용 list 추가, 내용 없이 Enter 및 Submit 클릭시 안내 문구 호출하며 리턴
             // 2. 추가된 리스트 X 버튼 클릭시 삭제
             // 3. 추가된 리스트 위, 아래 버튼 클릭시 위치 이동되며 끝에 부딪혔을때(다음 요소가 없을때) 안내 문구 호출하며 리턴
