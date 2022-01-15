@@ -5,12 +5,15 @@
     </head>
     <body>
         <div class="todoListWrap">
-            <h2>To DO List</h2>
+            <h2>To Do List</h2>
             <div class="searchBox"><input type="text" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit." name="searchV"><button class="btn_Submit">SUBMIT</button></div>
             <ul class="listNav"></ul>
         </div>
 
         <script>
+            // 1. input 입력 후, Enter 및 Submit버튼 클릭시 입력 내용 list 추가, 내용 없이 Enter 및 Submit 클릭시 안내 문구 호출하며 리턴
+            // 2. 추가된 리스트 X 버튼 클릭시 삭제
+            // 3. 추가된 리스트 위, 아래 버튼 클릭시 위치 이동되며 끝에 부딪혔을때(다음 요소가 없을때) 안내 문구 호출하며 리턴
             const searchSelector = document.querySelector('input[name="searchV"]');
             const btnClick = document.querySelector('.btn_Submit');
             const todoList = document.querySelector('.listNav');
