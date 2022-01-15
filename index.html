@@ -4,25 +4,27 @@
         <title></title>
     </head>
     <body>
-        <h3>안녕하세요</h3>
-        <ul>
-            <li>리aaa스트 1321324123</li>
-            <li>리aaa스트 1</li>
-            <li>리스트 2</li>
-            <li>리스트 2</li>
-            <li>리스트 2</li>
-            <li>리스트 2</li>
-            <li>리스asdfasdfasdfasdfsdfs트 2</li>
-            <li>리스트 2</li>
-            <li>리스트 2</li>
-            <li>리스트 1</li>
-            <li>리asdfasdfasdfasdf스트 1</li>
-            <li>리스트 1</li>
-            <li>리스트 1</li>
-            <li>리스트 1</li>
-            <li class="on">리스트 1나 오늘 추가 </li>
-            <li>리스트 1</li>
-        </ul>
-        <h4>추가 된 콘텐츠</h4>
+        <div class="todoListWrap">
+            <h2>To DO List</h2>
+            <div class="searchBox"><input type="text" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit." name="searchV"><button class="btn_Submit">SUBMIT</button></div>
+            <ul class="listNav">
+                
+            </ul>
+        </div>
+
+        <script>
+            const searchSelector = document.querySelector('input[name="searchV"]');
+            const searchValue = document.querySelector('input[name="searchV"]').value;
+            const btnClick = document.querySelector('.btn_Submit');
+
+            searchSelector.addEventListener('keydown', function(e){
+                const todoList = document.querySelector('.listNav');
+                if(e.key == 'Enter'){
+                    todoList.innerHTML += '<li>'+searchSelector.value+'</li>'
+                    searchSelector.value = '';
+                }
+            })
+            console.log(searchSelector);
+        </script>
     </body>
 </html>
