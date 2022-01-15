@@ -5,10 +5,19 @@ a{text-decoration:none;}
 .todoListWrap h2{font-size:28px;font-weight:bold;text-align:center;padding:20px 0;}
 .todoListWrap .searchBox{overflow:hidden;}
 .todoListWrap .searchBox input[name='searchV']{width:calc(100% - 100px);border:1px solid #ddd;border-right:0;background:#fff;border-radius:50px 0 0 50px;padding:0 15px;line-height:54px;}
-.todoListWrap .searchBox button{background:#000;color:#fff;line-height:54px;width:100px;border-radius:0 50px 50px 0;border:0;}
+.todoListWrap .searchBox button{background:#000;color:#fff;line-height:56px;width:100px;border-radius:0 50px 50px 0;border:0;}
 .todoListWrap .listNav{margin:30px 0;}
 .todoListWrap .listNav li{padding:5px 15px;position:relative;}
 .todoListWrap .listNav li::before{width:5px;height:5px;content:"";display:block;background:burlywood;position:absolute;top:50%;margin-top:-2.5px;left:0;}
 .todoListWrap .listNav li .listRemove{position:absolute;top:50%;right:0;width:24px;height:24px;margin-top:-12px;border-radius:50%;border:1px solid #ddd;cursor:pointer}
-.todoListWrap .listNav li .listRemove::after{content:"";width:70%;height:1px;background:#ddd;transform:translate(-50%, -50%) rotate(45deg);position:absolute;top:50%;left:50%;}
-.todoListWrap .listNav li .listRemove::before{content:"";width:70%;height:1px;background:#ddd;transform:translate(-50%, -50%) rotate(135deg);position:absolute;top:50%;left:50%;}
+.todoListWrap .listNav li .listRemove::after{content:"";width:60%;height:1px;background:#999;transform:translate(-50%, -50%) rotate(45deg);position:absolute;top:50%;left:50%;}
+.todoListWrap .listNav li .listRemove::before{content:"";width:60%;height:1px;background:#999;transform:translate(-50%, -50%) rotate(135deg);position:absolute;top:50%;left:50%;}
+.todoListWrap .listNav li .moveItem{cursor:pointer;font-size:5px;color:#999;text-align:center;line-height:24px;position:absolute;top:50%;width:24px;height:24px;margin-top:-12px;border-radius:50%;border:1px solid #ddd;}
+.todoListWrap .listNav li .moveItem.nextItem{right:28px;}
+.todoListWrap .listNav li .moveItem.prevItem{right:56px;}
+
+.todoListWrap .listNav li:hover .listRemove,
+.todoListWrap .listNav li:hover .moveItem{background:#000;}
+.todoListWrap .listNav li:hover .listRemove::before,
+.todoListWrap .listNav li:hover .listRemove::after{background:#fff;}
+.todoListWrap .listNav li:hover .moveItem{background:#000;color:#fff;}

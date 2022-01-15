@@ -30,13 +30,35 @@
                     alert('내용이 없습니다.');
                     return;
                 }
-                todoList.innerHTML += '<li>'+searchSelector.value+'<span class="listRemove" onclick="listRemove(this)"></span></li>' // 이벤트 실행시 html 추가
-                searchSelector.value = ''; // 이벤트가 전부 실행되면 입력 박스 value 초기화
+                todoList.innerHTML += '<li>'+searchSelector.value+'<span class="listRemove" onclick="listRemove(this)"></span><span class="moveItem prevItem" onclick="prevItemMove(this)">▲</span><span class="moveItem nextItem" onclick="nextItemMove(this)">▼</span></li>' // 이벤트 실행시 html 추가
+                searchSelector.value = ''; // 이벤트가 실행되면 입력 박스 value 초기화
+                searchSelector.focus(); // 이벤트 전부 실행되면 focus가 입력 박스로 이동
             }
 
 
             function listRemove(e){ // 함수 실행시 this 부모 노드를 삭제함
                 e.parentNode.remove();
+                searchSelector.focus(); // 이벤트 전부 실행되면 focus가 입력 박스로 이동
+            }
+
+            function nextItemMove(e){
+                const thisItem = e.parentNode;
+                const nextPosition = e.parentNode.nextSibling;
+                
+                if(nextPosition == '' || nextPosition == null || nextPosition == undefined || nextPosition == NaN){
+                    alert('아래 요소가 없습니다.');
+                    return;
+                }else nextPosition.after(thisItem);
+            }
+
+            function prevItemMove(e){
+                const thisItem = e.parentNode;
+                const prevPosition = e.parentNode.previousSibling;
+                
+                if(prevPosition == '' || prevPosition == null || prevPosition == undefined || prevPosition == NaN){
+                    alert('위에 요소가 없습니다.');
+                    return;
+                }else prevPosition.before(thisItem);
             }
         </script>
     </body>
