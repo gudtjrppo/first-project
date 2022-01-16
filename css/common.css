@@ -36,5 +36,5 @@ a{text-decoration:none;}
 .popWrap .popCont .popHead .popClose{position:absolute;top:50%;right:15px;margin-top:-15px;width:30px;height:30px;background:#000;cursor:pointer;}
 .popWrap .popCont .popHead .popClose::before{width:60%;height:1px;background:#fff;content:"";display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%) rotate(45deg);}
 .popWrap .popCont .popHead .popClose::after{width:60%;height:1px;background:#fff;content:"";display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%) rotate(135deg);}
-.popWrap .popCont .popBody{overflow:hidden;overflow-y:auto;}
-.popWrap .popCont .popBody{padding:20px 15px;}
+.popWrap .popCont .popBody{overflow:hidden;}
+.popWrap .popCont .popBody{padding:20px 15px;overflow-y:auto;}
