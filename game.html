@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./css/common.css">
+        <title></title>
+        <style>
+            body{background:#000;}
+            .gameCharacter{background:pink;width:200px;height:200px;position:absolute;bottom:0;left:50%;}
+        </style>
+    </head>
+    <body>
+        <div class="gameCharacter"></div>
+        <script>
+            // 1. 특정 요소 방향 키를 누르면 5px 이동
+            // 2. 누르고 있으면 계속 +
+            // 3. 벽에 닿으면 멈춤
+
+            const keyConnect = document.querySelector('body');
+            const character = document.querySelector('.gameCharacter');
+            let x = 0;
+            let y = 0;
+
+            keyConnect.addEventListener('keydown', function(e){
+                if(e.key == 'ArrowLeft'){
+                    x -= 5;
+                    character.style.left = x+'px';
+                    character.style.background = 'pink';
+                    if(character.offsetLeft <= 0){
+                        character.style.left = '0px';
+                        character.style.background = 'red';
+                        return;
+                    }
+                }else if(e.key == 'ArrowRight'){
+                    x += 5;
+                    character.style.left = x+'px';
+                    character.style.background = 'pink';
+                    if(character.offsetLeft <= 0) character.style.left = '0px';
+                }
+            })
+        </script>
+    </body>
+</html>
