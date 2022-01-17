@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./css/common.css">
+        <title></title>
+        <style>
+            body{background:#000;}
+            .gameCharacter{background:pink;width:200px;height:200px;position:absolute;bottom:0;left:50%;}
+        </style>
+    </head>
+    <body>
+        <script>
+            const arr = ['이형석', 32, '한국 서울특별시 왕십리', 'front end developer'];
+            const obj = {'NAME':'이형석', 'AGE':32, 'ADDRESS':'한국 서울특별시 왕십리', 'JOB':'Front end Developer'};
+
+            console.log('기본 문자 배열' + arr);
+            console.log('기본 객체');
+
+            for(const objAll in obj){
+                console.log(objAll, ':', obj[objAll], '<br />');
+            }
+        </script>
+    </body>
+</html>

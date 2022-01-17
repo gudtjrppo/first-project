@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./css/common.css">
+        <title></title>
+        <style>
+            body{background:#000;}
+            .gameCharacter{background:pink;width:200px;height:200px;position:absolute;bottom:0;left:50%;}
+        </style>
+    </head>
+    <body>
+        <script>
+            const json = '{ "NAME" : "Yongwoo", "AGE" : 25, "UNIVERSITY" : "Catholic Univ, of Korea", "MAJOR" : "Computer Science" }';
+
+            const jsonObj = JSON.parse(json); //  JSON.parse의 경우 JSON 포맷의 문자열을 객체로 변환 시켜준다.
+            console.log(json);
+            console.log('JSON 객체');
+
+            for(var jsonObjAll in jsonObj){
+                console.log(jsonObjAll, ':', jsonObj[jsonObjAll], '<br />');
+            }
+
+            const jsonStr = JSON.stringify(jsonObj); // JSON.stringify는 객체를 JSON 포맷의 문자열로 변환 시킨다.
+            console.log('JSON String Format : ', jsonStr);
+            
+        </script>
+    </body>
+</html>
